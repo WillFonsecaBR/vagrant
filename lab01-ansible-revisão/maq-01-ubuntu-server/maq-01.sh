@@ -8,8 +8,8 @@ sudo apt install -y ansible
 
 echo "========= | CONFIGURANDO HOSTS | ========="
 cat <<EOT >> /etc/hosts
-192.168.56.2 lab01.ubuntu.maq.01
-192.168.56.3 lab01.ubuntu.maq.02
-192.168.56.4 lab01.debian.maq.03
-192.168.56.5 lab01.centos.maq.04
+192.168.56.2 lab01-ubuntu-maq-01
+192.168.56.3 lab01-ubuntu-maq-02
+192.168.56.4 lab01-debian-maq-03
+192.168.56.5 lab01-centos-maq-04
 EOT

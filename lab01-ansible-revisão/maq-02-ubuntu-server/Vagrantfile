@@ -1,6 +1,7 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "bento/ubuntu-22.04"
-  config.vm.hostname = "lab01.ubuntu.maq.02"
-  config.vm.network "lab_network", ip: "192.168.56.3", hostname: true
+  config.vm.hostname = "lab01-ubuntu-maq-02"
+  config.vm.network "private_network", ip: "192.168.56.3", hostname: true
+  config.vm.provision "shell", path: "maq-02.sh"
   # config.vm.network "forwarded_port", guest: 8080, host:8080 
 end
