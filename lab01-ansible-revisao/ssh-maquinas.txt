@@ -1,0 +1,6 @@
+ssh vagrant@lab01-ubuntu-maq-01
+ssh vagrant@lab01-ubuntu-maq-02
+ssh vagrant@lab01-debian-maq-03
+ssh vagrant@lab01-rocklinux-maq-04
+
+

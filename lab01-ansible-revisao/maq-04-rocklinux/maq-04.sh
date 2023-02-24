@@ -1,7 +1,19 @@
 #!/bin/bash
 echo "========  | INSTALANDO SUDO  | ========"
 # SE O SUDO NÃO ESTIVER INSTALADO
-apt install -y sudo 
+yum install -y sudo 
+
+echo "========  | INSTALL EPEL RELIASE  | ========"
+sudo yum -y install epel-release
+
+echo "========  | CONFIGURANDO GETWAY PADRÃO  | ========"
+cat <<EOT >> /etc/sysconfig/network-scripts/ifcfg-eth0
+
+# CONFIGURAÇÃO DE GATEWAY PADRAO 
+GATEWAY0=192.168.56.1
+IPADDR0=192.168.56.5
+PREFIX0=32
+EOT
 
 echo "========  | CONFIGURANDO SSH  | ========"
 cat <<EOT >> /home/vagrant/.ssh/authorized_keys
@@ -11,6 +23,8 @@ EOT
 
 echo "========= | CONFIGURANDO HOSTS | ========="
 cat <<EOT >> /etc/hosts
+
+# HOSTS DO LABORATORIO
 192.168.56.2 lab01-ubuntu-maq-01
 192.168.56.3 lab01-ubuntu-maq-02
 192.168.56.4 lab01-debian-maq-03
@@ -18,7 +32,7 @@ cat <<EOT >> /etc/hosts
 EOT
 
 echo "========= | CONFIGURANDO SUDORS | ========="
-sudo apt install -y sshpass
+sudo yum -y install sshpass
 cat <<EOT >> /etc/sudoers
 # ELEVAÇÃO DE PRIVILEGIOS PARA USER VAGRANT
 vagrant ALL=(ALL:ALL) NOPASSWD:ALL 

@@ -1,6 +1,24 @@
 #!/bin/bash
+echo "========  | INSTALANDO SUDO  | ========"
+# SE O SUDO NÃO ESTIVER INSTALADO
+apt install -y sudo 
 
 echo "========  | CONFIGURANDO SSH  | ========"
-cat <<EOT >> /etc/vagrant/.ssh/authorized_keys
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCzGTENfdtOqzaIIstAj0aA7GlIGvAwhSUxKLxZo4WSQ2S+IqLRUsVzSeZ580HLvGBsVRns+Ybw0WP/fbGdtx4pm9oe4aW8p2TIUJNpAokSQkqxMpPfx5V945lr6Db2U5u/RniqzqPOZIzuOtjQmpQg11u5kHocfh7p6qmbHEAJIHdYZbDD+bqyzxioXLlm+runRH6TF2eEzOf4em+uqQLWyI1R5taFIp4kY2uP2XGA4l/lq9+0XTrMyYRUiwvxPrj23RsQ1x0zI7643AaufvIzOCVo15HSaZBXy35YAQuBjU8PPR6fZOitowGnku8IU0qDJhcqv3xyz1xKhTZKqtNoaZlJ77GTiuxxLsvFtpod7izGDPFTH31G8ev2B/ELfMDEMwAyG1ToLgGXP5fl4NEH0Yu6u+2QLZ3ILTrR0en6msMWXVHQyiVE17IfwUd4b4TxPmbl8WdJSsGF+EJZJifLs5cd6ZsqOAVIRIuHhXAyWnHnyEBOjfn4VuqXL4TCW/U= vagrant@lab01-ubuntu-maq-01
+cat <<EOT >> /home/vagrant/.ssh/authorized_keys
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCwKVg48nkRwbmGKcEUBOi+vP0lQhergy8oLjWSCIaHe2D1zOjrT4CQwbOrQtBIAO4AaDlMhY2NJAlPIjzx4traV9q4/fiH2etjUs+u/U37M0SgQyfBqFR6tJNfUV4RdklU27Ok8fS07CfBdCFaC/4X/HBW3M6tBYU8/OfJChlbyClQmLr6E2QUuHlVqo3cXd0OthUen76r5zS/PaTILUzXgWNfsuqAUHJJHY2M6wklKHYS0XgllCP4jfRUFU8lUwxrqkStd7TNLiYSkJqIuqKVoYKDIgIGPCGLOYtN7naV1aa99S+fofDrSh+K1LAB0FHvcajzKOgqssuqWEJuZh1AafoZe5Tqa1B8iIkzqmUCmrDm1qW1A5WgQ1IyicXKdheDPOrIKbo6hq0gYc4zcmFbylNY6Q3eSEafBeDrIlAr8R9CTCc20WUbdjXjvFyvStwfNOrb0psuhnrg1d3GlJZ5YoBKFSlo9r0Msn+wm7GeD1PrjLttMYGJ31KGWB9XYfk= vagrant@lab01-ubuntu-maq-01
+EOT
+
+echo "========= | CONFIGURANDO HOSTS | ========="
+cat <<EOT >> /etc/hosts
+192.168.56.2 lab01-ubuntu-maq-01
+192.168.56.3 lab01-ubuntu-maq-02
+192.168.56.4 lab01-debian-maq-03
+192.168.56.5 lab01-centos-maq-04
+EOT
+
+echo "========= | CONFIGURANDO SUDORS | ========="
+sudo apt install -y sshpass
+cat <<EOT >> /etc/sudoers
+# ELEVAÇÃO DE PRIVILEGIOS PARA USER VAGRANT
+vagrant ALL=(ALL:ALL) NOPASSWD:ALL 
 EOT

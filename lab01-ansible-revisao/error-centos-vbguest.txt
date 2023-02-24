@@ -1,0 +1,7 @@
+https://www.puppeteers.net/blog/fixing-vagrant-vbguest-for-the-centos-7-base-box/
+
+box.vbguest.installer_options = { allow_kernel_upgrade: true }
+
+config.vagrant.plugins = "vagrant-vbguest"
+config.vbguest.auto_update = false
+

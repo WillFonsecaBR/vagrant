@@ -2,6 +2,8 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "bento/ubuntu-22.04"
   config.vm.hostname = "lab01-ubuntu-maq-01"
+  config.vagrant.plugins = "vagrant-vbguest"
+  config.vbguest.auto_update = false
   config.vm.network "private_network", ip: "192.168.56.2", hostname: true
   config.vm.synced_folder ".", "/vagrant", path:"nfs"
   config.vm.provision "shell", path: "maq-01.sh"

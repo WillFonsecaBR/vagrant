@@ -1,0 +1,8 @@
+[BASE-DEBIAN]
+192.168.56.2 lab01-ubuntu-maq-01
+192.168.56.3 lab01-ubuntu-maq-02
+192.168.56.4 lab01-debian-maq-03
+
+
+[BASE-CENTOS]
+192.168.56.5 lab01-rocklinux-maq-04
